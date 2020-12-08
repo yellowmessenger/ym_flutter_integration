@@ -105,16 +105,15 @@ ymBotSdk.closeBot()
 ### addPayload(...)
 #### Flags
 * key (@required)[String]: Unique name given to payload item
-* value (@required) [dynamic]: Value associated to the name
+* value (@required) [dynamic]: Value associated to the key
 
 Example:
 ```dart
 ymBotSdk.addPayload(key:"Name",value:"Purush");
-ymBotsdk.addPayload(key:"company","Yellowmessenger");
+ymBotsdk.addPayload(key:"company",value:"Yellowmessenger");
 ```
 
 ### updatePayload()
-* ```Note``` : call this to send payload to the chatbot
 ```dart
 ymBotSdk.updatePayload();
 ```
