@@ -1,5 +1,6 @@
 # ym_flutter_integration 
 ![Image of Yellowmessenger](https://yellowmessenger.com/wp-content/uploads/2020/08/Frame.png)
+
 A Flutter plugin for integrating Yellow Messenger chatbots in your flutter application
 ## Overview 
 Gives a widget to show chatbot on your mobile application, and listen to the events emitted from the chatbot 
