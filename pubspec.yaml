@@ -1,0 +1,36 @@
+name: ym_bot_sdk
+description: A new Flutter plugin.
+version: 0.0.1
+author: Yellow messenger
+homepage: https://yellowmessenger.com/
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.3"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #using helper plugins
+  webview_flutter: ^0.3.23
+  speech_to_text: ^3.0.1
+  image_picker: ^0.6.7+14
+  url_launcher: ^5.4.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+
+flutter:
+
+  plugin:
+    platforms:
+      android:
+        package: com.yellowmessenger.ym_bot_sdk
+        pluginClass: YmBotSdkPlugin
+      ios:
+        pluginClass: YmBotSdkPlugin
+
