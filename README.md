@@ -8,7 +8,7 @@ A Flutter plugin for integrating Yellow Messenger chatbots in your flutter appli
 Gives a widget to show chatbot on your mobile application, and listen to the events emitted from the chatbot 
 
 ## Usage
-To use this plugin, add Ym_Bot_SDK as a dependency in your pubspec.yaml file.
+To use this plugin, add ym_flutter_integration as a dependency in your pubspec.yaml file.
 
 ## Getting started
 Initialise the YmBotSdk and set the initial configurations 
@@ -36,9 +36,54 @@ import 'package:ym_bot_sdk/ym_bot_sdk.dart';
  }
 
 ```
-
 Call getBotWidget() method on the **ymBotSdk** object to get the chatbot widget
 
+```dart
+ymBotSdk.getBotWidget(
+            botEventListener: (BotEvent botEvent) {
+              switch (botEvent.code) {
+                case "event1":
+                  ymBotSdk.closeBot();
+                  print("code is ${botEvent.code}, data");
+                  print("is ${botEvent.data}");
+                  break;
+                default:
+                  print("No data");
+              }
+            },
+          ),
+```
+
+
+## Methods
+* `setConfig(...) ` : To set initial configurations to the chatbot ( Config should be added befioring callign the `getBotWidget(...)`)
+* `getBotWidget(...)` : To get the chatbot widget
+* `closeBot(...)` : close the chatbot
+* `addPayload(...)` : add the payload to the chatbot ( payload is sent to chatbot once the `updatePayload` is called)
+* `updatePayload(...)` : to send the added payload to the chatbot
+* `clearPayload(...)` : To delete all exsting a nd added payloads
+### SetConfig(...)
+#### Flags
+* `enableHistory` : to send the added payload to the chatbot
+
+Example:
+```dart
+String botId = "<Your bot id goes here>";
+BuildContext context = <Widget context>;
+bool enableHistory = false;
+bool enableSpeech = false;
+bool enableCloseButton = false;
+ymBotSdk.setConfig
+(   botId,
+    context,
+    enableHistory,
+    enableSpeech,
+    enableCloseButton);
+```
+### getBotWidget(...)
+Call getBotWidget() method on the **ymBotSdk** object to get the chatbot widget
+
+Example:
 ```dart
 ymBotSdk.getBotWidget(
             botEventListener: (BotEvent botEvent) {
