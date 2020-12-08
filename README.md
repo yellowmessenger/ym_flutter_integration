@@ -55,8 +55,8 @@ ymBotSdk.getBotWidget(
 #### Flags
 * `botId` (@required) [String]: Chatbot unique id to show in the widget
 * `context` (@required) [BuildContext]: Context of the widget where you are showing the chatbot
-* `enableHistory` [bool]: Enable prvious chat history of the chatobt
-* `enableSpeech` [bool]: Enable the mic on the chatbot
+* `enableHistory` [bool]: Enable previous chat history of the chatobt
+* `enableSpeech` [bool]: Enable speech recognition on the chatbot
 * `enableCloseBot` [bool]: Close button to close the widget where chatbot is opened
 Example:
 ```dart
