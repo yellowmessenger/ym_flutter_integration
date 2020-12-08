@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:ym_bot_sdk/models/BotConfig.dart';
-import 'package:ym_bot_sdk/models/BotPayload.dart';
-import 'package:ym_bot_sdk/ym_bot_sdk.dart';
+import 'package:ym_flutter_integration/models/BotConfig.dart';
+import 'package:ym_flutter_integration/models/BotPayload.dart';
+import 'package:ym_flutter_integration/ym_bot_sdk.dart';
 
 import 'models/botEvents.dart';
 

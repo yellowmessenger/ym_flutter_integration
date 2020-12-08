@@ -3,12 +3,12 @@
 import 'package:flutter/cupertino.dart';
 // import 'package:image_picker/image_picker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:ym_bot_sdk/BotViewWidget.dart';
-import 'package:ym_bot_sdk/models/BotConfig.dart';
+import 'package:ym_flutter_integration/BotViewWidget.dart';
+import 'package:ym_flutter_integration/models/BotConfig.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 // import 'package:http/http.dart' as http;
-import 'package:ym_bot_sdk/models/BotPayload.dart';
-import 'package:ym_bot_sdk/models/botEvents.dart';
+import 'package:ym_flutter_integration/models/BotPayload.dart';
+import 'package:ym_flutter_integration/models/botEvents.dart';
 
 typedef BotEventListener = void Function(BotEvent);
 

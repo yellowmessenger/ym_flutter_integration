@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ym_bot_sdk/const/constants.dart';
+import 'package:ym_flutter_integration/const/constants.dart';
 
 // Configuration model for sending data to the helper functions
 class BotConfig {

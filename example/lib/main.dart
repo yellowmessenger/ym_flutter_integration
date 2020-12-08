@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ym_bot_sdk/models/botEvents.dart';
-import 'package:ym_bot_sdk/ym_bot_sdk.dart';
+import 'package:ym_flutter_integration/models/botEvents.dart';
+import 'package:ym_flutter_integration/ym_bot_sdk.dart';
 
 void main() {
   runApp(MyApp());

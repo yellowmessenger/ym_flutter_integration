@@ -1,4 +1,4 @@
-# YM Bot SDK
+# ym_flutter_integration 
 
 ![Image of Yellowmessenger](https://yellowmessenger.com/wp-content/uploads/2020/08/Frame.png)
 
