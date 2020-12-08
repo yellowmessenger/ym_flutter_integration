@@ -51,7 +51,9 @@ ymBotSdk.getBotWidget(
 * `addPayload(...)` : add the payload to the chatbot ( payload is sent to chatbot once the `updatePayload` is called)
 * `updatePayload(...)` : to send the added payload to the chatbot
 * `clearPayload(...)` : To delete all exsting a nd added payloads
-### SetConfig(...)
+
+
+### setConfig(...)
 #### Flags
 * `botId` (@required) [String]: Chatbot unique id to show in the widget
 * `context` (@required) [BuildContext]: Context of the widget where you are showing the chatbot
@@ -90,4 +92,35 @@ ymBotSdk.getBotWidget(
               }
             },
           ),
+```
+
+
+### closeBot()
+
+Example:
+```dart
+ymBotSdk.closeBot()
+```
+
+### addPayload(...)
+#### Flags
+* key (@required)[String]: Unique name given to payload item
+* value (@required) [dynamic]: Value associated to the name
+
+Example:
+```dart
+ymBotSdk.addPayload(key:"Name",value:"Purush");
+ymBotsdk.addPayload(key:"company","Yellowmessenger");
+```
+
+### updatePayload()
+* ```Note``` : call this to send payload to the chatbot
+```dart
+ymBotSdk.updatePayload();
+```
+
+### clearPayload()
+
+```dart
+ymBotSdk.clearPayload();
 ```
