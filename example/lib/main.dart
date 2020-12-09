@@ -56,7 +56,7 @@ class _BotPageState extends State<BotPage> {
               botEventListener: (BotEvent botEvent) {
                 switch (botEvent.code) {
                   case "choosen_other_option":
-                    ymFlutterIntegration.closeBot();
+                    // ymFlutterIntegration.closeBot();
                     // ymFlutterIntegration.addPayload(key: "Name", value: "Purush");
                     // ymFlutterIntegration.updatePayload();
                     print("code is ${botEvent.code}, data is ${botEvent.data}");

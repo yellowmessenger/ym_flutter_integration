@@ -7,8 +7,6 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<key>io.flutter.embedded_views_preview</key>
-    <true/>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
