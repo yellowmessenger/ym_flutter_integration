@@ -1,4 +1,4 @@
-group 'com.yellowmessenger.ym_bot_sdk'
+group 'com.yellowmessenger.ym_flutter_integration'
 version '1.0'
 
 buildscript {

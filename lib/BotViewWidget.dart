@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:ym_flutter_integration/models/BotConfig.dart';
 import 'package:ym_flutter_integration/models/BotPayload.dart';
-import 'package:ym_flutter_integration/ym_bot_sdk.dart';
+import 'package:ym_flutter_integration/ym_flutter_integration.dart';
 
 import 'models/botEvents.dart';
 
@@ -127,7 +127,7 @@ class _SpeechAreaState extends State<SpeechArea> {
               if (speechResult != null &&
                   speechResult != "" &&
                   prevRes != speechResult) {
-                YmBotSdk().sendEvent(data: speechResult);
+                YmFlutterIntegration().sendEvent(data: speechResult);
                 prevRes = speechResult;
                 speechResult = "";
               }

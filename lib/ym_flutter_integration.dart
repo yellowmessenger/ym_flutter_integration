@@ -1,22 +1,23 @@
-// import 'dart:async';
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-// import 'package:image_picker/image_picker.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:ym_flutter_integration/BotViewWidget.dart';
-import 'package:ym_flutter_integration/models/BotConfig.dart';
+import 'package:flutter/services.dart';
 import 'package:speech_to_text/speech_to_text.dart';
-// import 'package:http/http.dart' as http;
-import 'package:ym_flutter_integration/models/BotPayload.dart';
-import 'package:ym_flutter_integration/models/botEvents.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
+import 'BotViewWidget.dart';
+import 'models/BotConfig.dart';
+import 'models/BotPayload.dart';
+import 'models/botEvents.dart';
+
+// restricting the use of listen argument type
 typedef BotEventListener = void Function(BotEvent);
 
-/// A singleton class for which configurations are set only once and referred to get same object again and again
-class YmBotSdk {
-  // -> Singleton class
-  YmBotSdk._internal();
-  static final YmBotSdk _ymBotSdk = YmBotSdk._internal();
+class YmFlutterIntegration {
+// -> Singleton class
+  YmFlutterIntegration._internal();
+  static final YmFlutterIntegration _ymFlutterIntegration =
+      YmFlutterIntegration._internal();
 
   /// A singleton class for which configurations are set only once and referred to get same object again and again
   ///
@@ -29,14 +30,14 @@ class YmBotSdk {
   /// ```dart
   /// class myImplementation
   /// {
-  ///     YmBotSdk ymBotSdk=YmBotSdk();
-  ///     ymBotSdk.setConfig(...);
-  ///     ymBotSdk.addPayload(...);
+  ///     YmFlutterIntegration ymBotSdk=YmBotSdk();
+  ///     YmFlutterIntegration.setConfig(...);
+  ///     YmFlutterIntegration.addPayload(...);
   /// }
   /// ```
   /// {@end-tool}
-  factory YmBotSdk() {
-    return _ymBotSdk;
+  factory YmFlutterIntegration() {
+    return _ymFlutterIntegration;
   }
   //ends here
 
@@ -138,9 +139,9 @@ class YmBotSdk {
   /// ```dart
   /// class myImplementation
   /// {
-  ///     YmBotSdk ymBotSdk=YmBotSdk();
-  ///     ymBotSdk.addPayload(key:"Name",value:"Yellowmessenger");
-  ///     ymBotSdk.updatePayload();
+  ///     YmFlutterIntegration ymFlutterIntegration=YmBotSdk();
+  ///     YmFlutterIntegration.addPayload(key:"Name",value:"Yellowmessenger");
+  ///     YmFlutterIntegration.updatePayload();
   /// }
   /// ```
   /// {@end-tool}
