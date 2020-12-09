@@ -2,11 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Speech recognisation is used to understand user and senda data to chat bot runnin on plugin</string>
+<key>NSMicrophoneUsageDescription</key>
+	<string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Speech recognisation is used to understand user and senda data to chat bot runnin on plugin</string>
+	<string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
 	<key>CFBundleDevelopmentRegion</key>
+	<key>io.flutter.embedded_views_preview</key>
+    <true/>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -15,7 +17,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>ym_bot_sdk_example</string>
+	<string>ym_flutter_integration_example</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -46,6 +48,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
-	<true/>
+    <true/>
 </dict>
 </plist>

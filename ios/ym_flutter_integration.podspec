@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint ym_bot_sdk.podspec' to validate before publishing.
+# Run `pod lib lint ym_flutter_integration.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'ym_bot_sdk'
+  s.name             = 'ym_flutter_integration'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC

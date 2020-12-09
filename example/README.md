@@ -1,6 +1,6 @@
-# ym_bot_sdk_example
+# ym_flutter_integration_example
 
-Demonstrates how to use the ym_bot_sdk plugin.
+Demonstrates how to use the ym_flutter_integration plugin.
 
 ## Getting Started
 

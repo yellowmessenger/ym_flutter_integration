@@ -1,10 +1,10 @@
 import Flutter
 import UIKit
 
-public class SwiftYmBotSdkPlugin: NSObject, FlutterPlugin {
+public class SwiftYmFlutterIntegrationPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "ym_bot_sdk", binaryMessenger: registrar.messenger())
-    let instance = SwiftYmBotSdkPlugin()
+    let channel = FlutterMethodChannel(name: "ym_flutter_integration", binaryMessenger: registrar.messenger())
+    let instance = SwiftYmFlutterIntegrationPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

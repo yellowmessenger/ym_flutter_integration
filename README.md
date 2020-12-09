@@ -13,13 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:ym_bot_sdk/models/botEvents.dart';
 import 'package:ym_bot_sdk/ym_bot_sdk.dart';
  class _BotPageState extends State<BotPage> {
-  YmBotSdk ymBotSdk;
+  YmFlutterIntegration ymFlutterIntegration;
   String botId = "<Your botId goes here>";
   @override
   void initState() {
     super.initState();
-    ymBotSdk = YmBotSdk();
-    ymBotSdk.setConfig(
+    ymFlutterIntegration = YmBotSdk();
+    ymFlutterIntegration.setConfig(
         context: context,
         botId: botId,
         enableHistory: false,
@@ -30,7 +30,7 @@ import 'package:ym_bot_sdk/ym_bot_sdk.dart';
 ```
 Call getBotWidget() method on the **ymBotSdk** object to get the chatbot widget
 ```dart
-ymBotSdk.getBotWidget(
+ymFlutterIntegration.getBotWidget(
             botEventListener: (BotEvent botEvent) {
               switch (botEvent.code) {
                 case "event1":
@@ -44,6 +44,35 @@ ymBotSdk.getBotWidget(
             },
           ),
 ```
+## Requirements
+
+### Android
+
+```
+build.grable
+
+  minSdkVersion : 21
+
+permissions
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```
+## IOS
+
+```
+info.plist
+
+<string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
+<key>NSSpeechRecognitionUsageDescription</key>
+<string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
+<key>CFBundleDevelopmentRegion</key>
+<key>io.flutter.embedded_views_preview</key>
+<true/>
+```
+
+
 ## Methods
 * `setConfig(...) ` : To set initial configurations to the chatbot ( Config should be added befioring callign the `getBotWidget(...)`)
 * `getBotWidget(...)` : To get the chatbot widget
@@ -67,7 +96,7 @@ BuildContext context = <Widget context>;
 bool enableHistory = false;
 bool enableSpeech = false;
 bool enableCloseButton = false;
-ymBotSdk.setConfig
+ymFlutterIntegration.setConfig
 (   botId,
     context,
     enableHistory,
@@ -79,7 +108,7 @@ ymBotSdk.setConfig
 * `botEventListener` [Function(BotEvent )] : Bot emitted events are caught here 
 Example:
 ```dart
-ymBotSdk.getBotWidget(
+ymFlutterIntegration.getBotWidget(
             botEventListener: (BotEvent botEvent) {
               switch (botEvent.code) {
                 case "event1":
@@ -99,7 +128,7 @@ ymBotSdk.getBotWidget(
 
 Example:
 ```dart
-ymBotSdk.closeBot()
+ymFlutterIntegration.closeBot()
 ```
 
 ### addPayload(...)
@@ -109,17 +138,17 @@ ymBotSdk.closeBot()
 
 Example:
 ```dart
-ymBotSdk.addPayload(key:"Name",value:"Purush");
-ymBotsdk.addPayload(key:"company",value:"Yellowmessenger");
+ymFlutterIntegration.addPayload(key:"Name",value:"Purush");
+ymFlutterIntegration.addPayload(key:"company",value:"Yellowmessenger");
 ```
 
 ### updatePayload()
 ```dart
-ymBotSdk.updatePayload();
+ymFlutterIntegration.updatePayload();
 ```
 
 ### clearPayload()
 
 ```dart
-ymBotSdk.clearPayload();
+ymFlutterIntegration.clearPayload();
 ```

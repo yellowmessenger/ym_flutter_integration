@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ym_flutter_integration/models/botEvents.dart';
-import 'package:ym_flutter_integration/ym_bot_sdk.dart';
+import 'package:ym_flutter_integration/ym_flutter_integration.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,43 +29,46 @@ class BotPage extends StatefulWidget {
 }
 
 class _BotPageState extends State<BotPage> {
-  YmBotSdk ymBotSdk;
+  YmFlutterIntegration ymFlutterIntegration;
   String botId = "x1597301712805";
 
   @override
   void initState() {
     super.initState();
-    ymBotSdk = YmBotSdk();
-    ymBotSdk.setConfig(
+    ymFlutterIntegration = YmFlutterIntegration();
+    ymFlutterIntegration.setConfig(
         context: context,
         botId: botId,
         enableHistory: false,
         enableSpeech: false,
         enableCloseButton: true);
-    ymBotSdk.addPayload(key: "Age", value: "22");
+    ymFlutterIntegration.addPayload(key: "Name", value: "Purush");
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Expanded(
-          child: ymBotSdk.getBotWidget(
-            botEventListener: (BotEvent botEvent) {
-              switch (botEvent.code) {
-                case "choosen_other_option":
-                  ymBotSdk.closeBot();
-                  // ymBotSdk.addPayload(key: "Name", value: "Purush");
-                  // ymBotSdk.updatePayload();
-                  print("code is ${botEvent.code}, data is ${botEvent.data}");
-                  break;
-                default:
-                  print("No data");
-              }
-            },
+          body: Column(
+        children: [
+          Expanded(
+            child: ymFlutterIntegration.getBotWidget(
+              botEventListener: (BotEvent botEvent) {
+                switch (botEvent.code) {
+                  case "choosen_other_option":
+                    ymFlutterIntegration.closeBot();
+                    // ymFlutterIntegration.addPayload(key: "Name", value: "Purush");
+                    // ymFlutterIntegration.updatePayload();
+                    print("code is ${botEvent.code}, data is ${botEvent.data}");
+                    break;
+                  default:
+                    print("No data");
+                }
+              },
+            ),
           ),
-        ),
-      ),
+        ],
+      )),
     );
   }
 }
