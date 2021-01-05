@@ -10,8 +10,8 @@ To use this plugin, add ym_flutter_integration as a dependency in your pubspec.y
 Initialise the YmBotSdk and set the initial configurations 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:ym_bot_sdk/models/botEvents.dart';
-import 'package:ym_bot_sdk/ym_bot_sdk.dart';
+import 'package:ym_flutter_integration/models/botEvents.dart';
+import 'package:ym_flutter_integration/ym_flutter_integration.dart';
  class _BotPageState extends State<BotPage> {
   YmFlutterIntegration ymFlutterIntegration;
   String botId = "<Your botId goes here>";
