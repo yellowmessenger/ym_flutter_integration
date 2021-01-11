@@ -13,8 +13,8 @@ import 'models/botEvents.dart';
 
 class BotViewWidget extends StatefulWidget {
   final BotConfig myBotConfig;
-  Function setWebController, customEventListener;
-  BotPayload myBotPayload;
+  final Function setWebController, customEventListener;
+  final BotPayload myBotPayload;
   BotViewWidget(
       {this.myBotConfig,
       this.setWebController,
@@ -25,7 +25,6 @@ class BotViewWidget extends StatefulWidget {
 }
 
 class _BotViewWidgetState extends State<BotViewWidget> {
-  Completer<WebViewController> _controller = Completer<WebViewController>();
   @override
   void initState() {
     // TODO: implement initState

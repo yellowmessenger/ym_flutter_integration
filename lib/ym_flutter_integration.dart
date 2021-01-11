@@ -41,6 +41,7 @@ class YmFlutterIntegration {
   }
   //ends here
 
+  // Set bot configuration for whihc the bot widget is thrown
   BotConfig myBotConfig = new BotConfig();
   BotPayload myBotPayload = new BotPayload();
   BuildContext context;
