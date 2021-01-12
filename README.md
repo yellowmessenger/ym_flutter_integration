@@ -7,7 +7,7 @@ Gives a widget to show chatbot on your mobile application, and listen to the eve
 ## Usage
 To use this plugin, add ym_flutter_integration as a dependency in your pubspec.yaml file.
 ## Getting started
-Initialise the YmBotSdk and set the initial configurations 
+Initialise the ym_flutter_integration and set the initial configurations 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:ym_flutter_integration/models/botEvents.dart';
@@ -28,13 +28,13 @@ import 'package:ym_flutter_integration/ym_flutter_integration.dart';
   }
  }
 ```
-Call getBotWidget() method on the **ymBotSdk** object to get the chatbot widget
+Call getBotWidget() method on the **ymFlutterIntegration** object to get the chatbot widget
 ```dart
 ymFlutterIntegration.getBotWidget(
             botEventListener: (BotEvent botEvent) {
               switch (botEvent.code) {
                 case "event1":
-                  ymBotSdk.closeBot();
+                  ymFlutterIntegration.closeBot();
                   print("code is ${botEvent.code}, data");
                   print("is ${botEvent.data}");
                   break;
@@ -64,10 +64,10 @@ permissions
 ```
 info.plist
 
+<key>NSMicrophoneUsageDescription</key>
 <string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
 <key>NSSpeechRecognitionUsageDescription</key>
 <string>Speech recognisation is used to understand user speech and send data to chat bot running on plugin</string>
-<key>CFBundleDevelopmentRegion</key>
 <key>io.flutter.embedded_views_preview</key>
 <true/>
 ```
@@ -112,7 +112,7 @@ ymFlutterIntegration.getBotWidget(
             botEventListener: (BotEvent botEvent) {
               switch (botEvent.code) {
                 case "event1":
-                  ymBotSdk.closeBot();
+                  ymFlutterIntegration.closeBot();
                   print("code is ${botEvent.code}, data");
                   print("is ${botEvent.data}");
                   break;
