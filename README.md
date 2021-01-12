@@ -18,7 +18,7 @@ import 'package:ym_flutter_integration/ym_flutter_integration.dart';
   @override
   void initState() {
     super.initState();
-    ymFlutterIntegration = YmBotSdk();
+    ymFlutterIntegration = YmFlutterIntegration();
     ymFlutterIntegration.setConfig(
         context: context,
         botId: botId,
