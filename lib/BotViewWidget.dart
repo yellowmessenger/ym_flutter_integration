@@ -1,6 +1,4 @@
-import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,9 +10,13 @@ import 'package:ym_flutter_integration/ym_flutter_integration.dart';
 import 'models/botEvents.dart';
 
 class BotViewWidget extends StatefulWidget {
+  // To remember bot config
   final BotConfig myBotConfig;
+  // For lifting up the web controller form the web view and listening to the post events from the chatbot
   final Function setWebController, customEventListener;
+  // To work with payload add, clear, update
   final BotPayload myBotPayload;
+  //constructor for taking the intial config from the client
   BotViewWidget(
       {this.myBotConfig,
       this.setWebController,
@@ -27,19 +29,22 @@ class BotViewWidget extends StatefulWidget {
 class _BotViewWidgetState extends State<BotViewWidget> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
   @override
   Widget build(BuildContext context) {
+    // Creating bot url to request for the chatbot
     String botUrl =
         '${widget.myBotConfig.botUrl}${widget.myBotPayload.getBotPayload()}';
     return Stack(
       children: <Widget>[
+        // return the chatbot from the webview
         WebView(
+          // sending the chatbot url
           initialUrl: botUrl,
+          // enabling the javascript for the webside interations
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             widget.setWebController(webViewController);
@@ -52,6 +57,7 @@ class _BotViewWidgetState extends State<BotViewWidget> {
             print(error);
           },
           navigationDelegate: (NavigationRequest request) async {
+            // Handling navigation inside of chatbot and outside for third party links
             print('request $request');
             if (request.url == "about:blank" ||
                 request.url ==
@@ -77,6 +83,7 @@ class _BotViewWidgetState extends State<BotViewWidget> {
           initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.always_allow,
         ),
         if (widget.myBotConfig.enableCloseButton)
+          // Button to close the chatbot
           Positioned(
               right: 10,
               top: 10,
@@ -84,6 +91,7 @@ class _BotViewWidgetState extends State<BotViewWidget> {
                   icon: Icon(Icons.close),
                   iconSize: 28,
                   onPressed: () {
+                    // Closing bot if there is a widget to go back
                     if (Navigator.canPop(context)) Navigator.pop(context);
                   })),
         if (widget.myBotConfig.enableSpeech) SpeechArea()
@@ -92,7 +100,9 @@ class _BotViewWidgetState extends State<BotViewWidget> {
   }
 }
 
+// widget to show the FAD to interact with the client speech
 class SpeechArea extends StatefulWidget {
+  // handling user speech with the chatbot using mike button
   const SpeechArea({
     Key key,
   }) : super(key: key);
@@ -104,13 +114,18 @@ class SpeechArea extends StatefulWidget {
 class _SpeechAreaState extends State<SpeechArea> {
   // -> controller to control the webview
   SpeechToText stt = SpeechToText();
+  // To check if the service available to listen
   bool speechServiceAvailability = false;
+  // To check if bot is listening to user voice
   bool listening = false;
+  // final result to send to chatbot
   String speechResult;
   String prevRes = "";
 
+  // initialise in order interact and start listening to the clients voice
   void intializeSpeechService() async {
     if (!speechServiceAvailability) {
+      // initialising the speech service
       speechServiceAvailability = await stt.initialize(
           onStatus: (status) {
             print('status : $status');
@@ -139,12 +154,16 @@ class _SpeechAreaState extends State<SpeechArea> {
     }
   }
 
+  // Stopping the speech recognising
   void stopRecognitation() {
     stt.stop();
   }
 
+  // Recognise the client speech
   void recogniseSpeech() async {
+    // Starting to listing the clients voice
     if (speechServiceAvailability) {
+      // capturing speech service
       speechResult = "";
       stt
           .listen(
@@ -212,6 +231,7 @@ class _SpeechAreaState extends State<SpeechArea> {
   }
 }
 
+//listen to the bot events
 JavascriptChannel _events(BuildContext context, customEventListener) {
   return JavascriptChannel(
     name: 'ReactNativeWebView', // YM channel for catching events from the bot
