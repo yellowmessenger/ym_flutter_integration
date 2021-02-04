@@ -1,6 +1,6 @@
 name: ym_flutter_integration
 description: A Flutter plugin for integrating Yellow Messenger chatbots in your flutter application.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/yellowmessenger/ym_flutter_integration
 
 environment:

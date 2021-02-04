@@ -1,3 +1,9 @@
+## [0.0.4]
+
+* Updated the plugin versions.
+* Fixed swift comipler version error for speech_to_text library
+* Code documentaion updated
+
 ## [0.0.3]
 
 * Updated integration docs.
