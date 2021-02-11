@@ -1,8 +1,15 @@
+## [0.0.5]
+
+* Updated URL for chatbot
+
+## [0.0.5]
+
+* Fixed swift compiler version error for speech_to_text library.
+
 ## [0.0.4]
 
 * Updated the plugin versions.
-* Fixed swift comipler version error for speech_to_text library
-* Code documentaion updated
+* Code documentaion updated.
 
 ## [0.0.3]
 
